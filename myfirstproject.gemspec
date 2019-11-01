@@ -5,7 +5,7 @@ require "myfirstproject/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "myfirstproject"
-  spec.version       = Myfirstproject::VERSION
+  spec.version       = MYFIRSTPROJECT::VERSION
   spec.authors       = ["'Lauren Dove'"]
   spec.email         = ["'elledoveinc@gmail.com'"]
 
@@ -40,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry"
   spec.add_dependency "nokogiri"
+  spec.add_dependency "httparty"
 end

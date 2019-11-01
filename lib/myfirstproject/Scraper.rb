@@ -1,74 +1,104 @@
-class MYFIRSTPROJECT::SCRAPER
+class MYFIRSTPROJECT::SCRAPER #change name to API no longer scraping
 
-def fetch #change it to match the url names
-    firsthtml = open("https://www.hsvc.org/contact_us") #Humane Society Ventura County
+
+    def self.fetch(url)
+        key = "Kmmgr6LbWwq1L5E-143KXLCBQo6BNMdSXG9JO25Do3nhHNoU8ll1vAGtkDJUH2Lvqifve6e9qHyYWPzzknBTPVtisDPHVoHT9TuA1fFNYxbS0-YiYCo01wBNshW6XXYx"
+        # url = 'https://api.yelp.com/v3/businesses/search?location=Ventura&term=animal_shelters&radius=40000&sort_by=best_match&limit=20'
+        # url_cat = 
+        # url_dog =
+        response = HTTParty.get(url, headers:{'Authorization' => "Bearer #{key}"})
+        response.parsed_response
+
+         response["businesses"].each do |n|
+          name=  n["name"]
+          address = n["location"]["display_address"]
+          phone_number = n["display_phone"]
+          MYFIRSTPROJECT::Adoption.new(name,address, phone_number)
+            
+
+         end
+
+         
+        #    names = response["businesses"].collect do |n|
+        #  n["name"]
+        
+         
+        #  end
+        #  binding.pry
+    end
+
+
+
+
+# def fetch #change it to match the url names
+#     firsthtml = open("https://www.hsvc.org/contact_us") #Humane Society Ventura County
     
 
-    doc = Nokogiri::HTML(firsthtml)
-    #binding.pry
-end
+#     doc = Nokogiri::HTML(firsthtml)
+#     #binding.pry
+# end
 
 
- def grab
+#  def grab
 
-    secondhtml = open("https://carldogs.org/contact/") #C.A.R.L.S Dogs
+#     secondhtml = open("https://carldogs.org/contact/") #C.A.R.L.S Dogs
 
-    docs = Nokogiri::HTML(secondhtml)
-    #b[0].children[1]
-    docs.css("div.page-content").css("div.textwidget").each do |info|
-        #binding.pry
-    end
-   end
+#     docs = Nokogiri::HTML(secondhtml)
+#     #b[0].children[1]
+#     docs.css("div.page-content").css("div.textwidget").each do |info|
+#         #binding.pry
+#     end
+#    end
 
-def catch
+# def catch
 
-    thirdhtml = open("https://www.pawworks.org/adoption-locations/") #pawsworks
+#     thirdhtml = open("https://www.pawworks.org/adoption-locations/") #pawsworks
 
-    doc = Nokogiri::HTML(thirdhtml)
-    #binding.pry
+#     doc = Nokogiri::HTML(thirdhtml)
+#     #binding.pry
 
-end
+# end
 
-def cats_cradle
+# def cats_cradle
 
-    html = open("https://www.catscradlerescue.org/info/contact") #catscradle
-    doc = Nokogiri::HTML(html)
-    #binding.pry
-end
-
-
- def santa_paula
-    html = open("http://www.santapaulaarc.org/contact.html")
-    doc = Nokogiri::HTML(html)
-    #binding.pry
-
- end
+#     html = open("https://www.catscradlerescue.org/info/contact") #catscradle
+#     doc = Nokogiri::HTML(html)
+#     #binding.pry
+# end
 
 
+#  def santa_paula
+#     html = open("http://www.santapaulaarc.org/contact.html")
+#     doc = Nokogiri::HTML(html)
+#     #binding.pry
 
- def purrfect
-    html = open ("http://www.thepurrfectcat.com/contact.html")
-    doc = Nokogiri::HTML(html)
-    #binding.pry
- end
+#  end
 
 
 
- def surf_cat
-
-    html = open("https://surfcatcafe.org/contact-us/")
-    doc = Nokogiri::HTML(html)
-    #binding.pry
- end
-
+#  def purrfect
+#     html = open ("http://www.thepurrfectcat.com/contact.html")
+#     doc = Nokogiri::HTML(html)
+#     #binding.pry
+#  end
 
 
- def grey_cat
-    html = open("https://greyfootcat.rescuegroups.org/animals/browse?Status=Available")
-    doc = Nokogiri::HTML(html)
-    binding.pry
 
- end
+#  def surf_cat
+
+#     html = open("https://surfcatcafe.org/contact-us/")
+#     doc = Nokogiri::HTML(html)
+#     #binding.pry
+#  end
+
+
+
+#  def grey_cat
+#     html = open("https://greyfootcat.rescuegroups.org/animals/browse?Status=Available")
+#     doc = Nokogiri::HTML(html)
+#     binding.pry
+
+#  end
 
 
 end
