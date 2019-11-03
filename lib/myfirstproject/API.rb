@@ -1,11 +1,9 @@
-class MYFIRSTPROJECT::SCRAPER #change name to API no longer scraping
+class MYFIRSTPROJECT::API #change name to API no longer scraping
 
 
     def self.fetch(url)
         key = "Kmmgr6LbWwq1L5E-143KXLCBQo6BNMdSXG9JO25Do3nhHNoU8ll1vAGtkDJUH2Lvqifve6e9qHyYWPzzknBTPVtisDPHVoHT9TuA1fFNYxbS0-YiYCo01wBNshW6XXYx"
-        # url = 'https://api.yelp.com/v3/businesses/search?location=Ventura&term=animal_shelters&radius=40000&sort_by=best_match&limit=20'
-        # url_cat = 
-        # url_dog =
+
         response = HTTParty.get(url, headers:{'Authorization' => "Bearer #{key}"})
         response.parsed_response
 
@@ -19,16 +17,55 @@ class MYFIRSTPROJECT::SCRAPER #change name to API no longer scraping
          end
 
          
-        #    names = response["businesses"].collect do |n|
-        #  n["name"]
+       
         
          
-        #  end
-        #  binding.pry
+        
     end
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 # def fetch #change it to match the url names
 #     firsthtml = open("https://www.hsvc.org/contact_us") #Humane Society Ventura County

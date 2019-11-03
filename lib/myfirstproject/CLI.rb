@@ -20,12 +20,12 @@ class MYFIRSTPROJECT::CLI
 
       if input == "dog" 
         url_dog = 'https://api.yelp.com/v3/businesses/search?location=Ventura&term=animal_shelters&radius=40000&sort_by=best_match&limit=20'
-         MYFIRSTPROJECT::SCRAPER.fetch(url_dog)
+         MYFIRSTPROJECT::API.fetch(url_dog)
       elsif input == "cat"
-          url_cat = 'https://api.yelp.com/v3/businesses/search?location=Ventura&term=animal_shelters&radius=40000&sort_by=best_match&limit=20'
-            MYFIRSTPROJECT::SCRAPER.fetch(url_cat)
+          url_cat = 'https://api.yelp.com/v3/businesses/search?location=Ventura&term=cat_shelters&radius=40000&sort_by=best_match&limit=20'
+            MYFIRSTPROJECT::API.fetch(url_cat)
        else
-        puts "I'm very sorry,don't understand!" #make it something quirky
+        puts "Paw-done me, but we're having a ruff time understanding your choice. Try again?" 
         get_input
         end
 
@@ -34,7 +34,7 @@ class MYFIRSTPROJECT::CLI
       def print_animal_shelters
         MYFIRSTPROJECT::Adoption.all.each.with_index(1) do |shelter,index|
         puts "#{index}. #{shelter.name}"
-        #binding.pry
+        
         end
 
       end
@@ -43,7 +43,10 @@ class MYFIRSTPROJECT::CLI
         input = gets.chomp.to_i
        if  input.between?(1,20) 
        @shelter =  MYFIRSTPROJECT::Adoption.find(input)
-       #binding.pry
+       else
+        puts "Paw-done me, but we're having a ruff time understanding your choice. Try again?"
+        select_animal_shelters
+      
        end
 
 
@@ -52,7 +55,7 @@ class MYFIRSTPROJECT::CLI
       puts  @shelter.name
       puts @shelter.address
       puts @shelter.phone_number
-      #binding.pry
+     
     end
 
 

@@ -3,6 +3,35 @@ HELLO WORLD
 
 # Myfirstproject
 
+
+To get started, simply type the command 'bundle install' to install the program. This project uses httparty so if you don't have that you will need to install it as well. Orginally when this project was started, I used nokogiri and open-uri to scrape from the websites I needed the information from. Uforntunately, due to timing, and complexity, I had to pivot and used httparty instead.
+
+Once installed, to run the program you will type  'bin/my-first-project'.
+
+#create despriptions on what the app does and the steps to install.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/myfirstproject`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
