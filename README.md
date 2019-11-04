@@ -8,6 +8,10 @@ To get started, simply type the command 'bundle install' to install the program.
 
 Once installed, to run the program you will type  'bin/my-first-project'.
 
+The program will help animal lovers in Ventura County find shelters in the area based on a species choice. (Cat or Dog)
+Once the user selects which specices they will be presented with a choice of animal shelters numbered 1 - 20.
+After the user makes a choice, they will be shown the address & phone nummber  of the animal shelter they selected.
+
 #create despriptions on what the app does and the steps to install.
 
 
